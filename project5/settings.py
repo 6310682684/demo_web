@@ -134,4 +134,4 @@ SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
 
-ALLOWED_HOSTS = ['13.236.86.25']
+ALLOWED_HOSTS = ['13.236.86.25' , 'localhost', '0.0.0.0']
