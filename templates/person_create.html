@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<style>
+
+    center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+</style>
+
+{%block body%}
+
+
+{% if form.is_valid %}
+    <br> add a new record </br>
+    {{ form.first_name.label }} : {{ form.first_name.value}}<br>
+    {{ form.last_name.label }} : {{ form.last_name.value}}<br>
+    {{ form.salary.label }} : {{ form.salary.value}}<br>
+    <a href = "{% url 'person_read'%}"> back to record </a>
+{% else %}
+<div class = "center">
+    <form method = "post" class = "center">
+        {% csrf_token %}
+        <table class = "center">
+            {{ form.as_table }}
+        </table>
+    </br>
+        <input type = "submit">
+    </form>
+</br>
+    <a href = "{% url 'person_read'%}"> back to record </a>
+{% endif %}
+</div>
+
+{%endblock%}

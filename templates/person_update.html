@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%block body%}
+
+{% if form.is_valid %}
+    <br> update record </br>
+    {{ form.first_name.label }} : {{ form.first_name.value}}<br>
+    {{ form.last_name.label }} : {{ form.last_name.value}}<br>
+    {{ form.salary.label }} : {{ form.salary.value}}<br>
+    <a href = "{% url 'person_read'%}"> read record </a>
+    
+{% else %}
+
+    <form method = "post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type = "submit">
+    </form>
+    <a href = "{% url 'person_read'%}"> read record </a>
+{% endif %}
+
+
+{%endblock%}
